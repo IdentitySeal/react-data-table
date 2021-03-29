@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { DataProvider } from "../src/context/index"
 
-function App() {
+import TableComponent from './components/TableComponent'
+import PaginationComponent from './components/Pagination'
+import Search from './components/Search'
+import Header from './components/Header'
+import Table from 'react-bootstrap/Table'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DataProvider>
+        <Search />
+        <Table striped bordered hover>
+          <Header />
+          <TableComponent />
+          <Header />
+          <PaginationComponent
+            // total={totalItems}
+            // booksPerPage={booksPerPage}
+            // currentPage={currentPage}
+            // onPageChange={page => setCurrentPage(page)}
+            
+          />
+        </Table>
+      </DataProvider>
+    </>
   );
 }
 
