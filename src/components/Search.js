@@ -10,17 +10,33 @@ const Search = () => {
     const onInputChange = (e) => {
         setSearch(e.target.value)
         setCurrentPage(1)
-        // console.log(search) 
-        const filterbooks = data.filter(books => {
-            return books.name.toLowerCase().includes(search.toLowerCase())
-        })
 
-        // setFilteredBooks(filterbooks)
-        // console.log(filteredbooks)
+        console.log(search)
 
 
-        setData(filterbooks)
 
+
+
+            // const filterbooks = data.filter(books => {
+            //     return books.name.toLowerCase().includes(search.toLowerCase())
+            // })
+            // console.log(filterbooks)
+
+        
+        
+        
+        // // setFilteredBooks(filterbooks)
+        // console.log(search)
+        
+        // // if (search === "") {
+        // //     setData(data)
+        // //     console.log(data)
+        // // }
+        // // else {
+        //     setData(filterbooks)
+        // //     console.log(data)
+
+        // }
     }
     
     // useEffect(() => {
@@ -34,6 +50,7 @@ const Search = () => {
             placeholder="Search"
             style ={{width:'200px'}}
             onChange={onInputChange}
+            value={search}
         />
     )
 }

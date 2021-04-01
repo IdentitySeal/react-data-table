@@ -1,4 +1,3 @@
-import { DataProvider } from "../src/context/index"
 
 import TableComponent from './components/TableComponent'
 import PaginationComponent from './components/Pagination'
@@ -14,7 +13,6 @@ const App = () => {
 
   return (
     <>
-      <DataProvider>
         <Search />
         <Table striped bordered hover>
           <Header />
@@ -28,7 +26,6 @@ const App = () => {
             
           />
         </Table>
-      </DataProvider>
     </>
   );
 }
