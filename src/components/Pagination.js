@@ -11,7 +11,6 @@ const PaginationComponent = () => {
     const {  booksPerPage, currentPage, setCurrentPage, totalPages, setTotalPages} = getData
 
     const nextPageChange = () => {
-        console.log('button works')
         setCurrentPage( 
              currentPage + 1
         )
@@ -19,7 +18,6 @@ const PaginationComponent = () => {
 
     }
     const prevPageChange = () => {
-        console.log('button works')
         setCurrentPage(
             currentPage - 1
         )
@@ -41,19 +39,13 @@ const PaginationComponent = () => {
             // but the value i got wasn't correct so i manually inputed 12
 
         const total = Math.ceil(12 / booksPerPage)
-
-        // console.log(total)
         setTotalPages(total)
     }
         getTotal()
        
 
     },)
-    
-    // console.log(totalPages)
-
-    
-    
+      
     let items = [];
 
     for (let number = 1; number <= totalPages; number++) {
@@ -67,6 +59,8 @@ const PaginationComponent = () => {
             </Pagination.Item>,
         );
     }
+
+
     return (
         <Pagination>
             <Pagination.Prev
@@ -74,6 +68,7 @@ const PaginationComponent = () => {
                 disabled={currentPage === 1}
             />
             {items}
+
             <Pagination.Next
                 onClick={() => nextPageChange()}
                 disabled={currentPage === totalPages}

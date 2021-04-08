@@ -10,39 +10,30 @@ const DataProvider = ({ children }) => {
     const [totalPages, setTotalPages] = useState(0)
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [currentSort, setCurrentSort] = useState('default')
+
     const booksPerPage = 10
 
     // let booksPerPage = 10
 
-    const getData = async () => {
-        console.log("current page " + currentPage)
-        console.log("books per page " + booksPerPage)
-        return await fetch(`https://www.anapioficeandfire.com/api/books?page=${currentPage}&pageSize=${booksPerPage}`)
-            .then((res) => res.json())
-            .then((books) => {
-                setData(books)
-            })
-    }
+    
 
     useEffect(() => {
+        const getData = async () => {
+            console.log("current page " + currentPage)
+            console.log("books per page " + booksPerPage)
+            return await fetch(`https://www.anapioficeandfire.com/api/books?page=${currentPage}&pageSize=${booksPerPage}`)
+                .then((res) => res.json())
+                .then((books) => {
+                    setData(books)
+                    setLoading(true)
+                })
+        }
         getData()
     }, [currentPage])
 
-    const filterbooks = () => {
-        data.filter(books => {
-            return books.name.toLowerCase().includes(search.toLowerCase())
-        })
-    }
-
-    console.log(filterbooks)
-
-    const filterbook = data.filter(books => {
-        return books.name.toLowerCase().includes(search.toLowerCase())
-    })
-    console.log(filterbook)
-
-        
-        
+    
 
     return (
         <DataContext.Provider value={{
@@ -54,7 +45,11 @@ const DataProvider = ({ children }) => {
             totalPages,
             setTotalPages,
             search,
-            setSearch
+            setSearch,
+            loading,
+            setLoading,
+            currentSort,
+            setCurrentSort
         }}>
             {children}    
         </DataContext.Provider>
