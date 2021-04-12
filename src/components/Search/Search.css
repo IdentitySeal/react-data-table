@@ -1,0 +1,11 @@
+.search-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.search-container > div {
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+	margin-bottom: 1rem;
+}

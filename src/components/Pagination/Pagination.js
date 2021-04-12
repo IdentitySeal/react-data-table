@@ -1,5 +1,6 @@
 import React, {useContext,useEffect}from 'react'
-import { DataContext } from '../context/index';
+import { DataContext } from '../../context/index';
+import './Pagination.css'
 
 
 import Pagination from 'react-bootstrap/Pagination'
@@ -8,7 +9,7 @@ const PaginationComponent = () => {
     const getData = useContext(DataContext);
 
 
-    const {  booksPerPage, currentPage, setCurrentPage, totalPages, setTotalPages} = getData
+    const {data,  booksPerPage, currentPage, setCurrentPage, totalPages, setTotalPages} = getData
 
     const nextPageChange = () => {
         setCurrentPage( 
@@ -20,7 +21,7 @@ const PaginationComponent = () => {
     const prevPageChange = () => {
         setCurrentPage(
             currentPage - 1
-        )
+        )   
         // console.log(currentPage)
 
     }
@@ -34,11 +35,11 @@ const PaginationComponent = () => {
     useEffect(() => {
         const getTotal = () => {
         
-            // const total = Math.ceil((data.length) / booksPerPage)
+            const total = Math.ceil((data.length) / booksPerPage)
             // The above arithmentic would have gotten exact data array length from https://anapioficeandfire.com/api/books
-            // but the value i got wasn't correct so i manually inputed 12
-
-        const total = Math.ceil(12 / booksPerPage)
+            // but i wanted tobe solve this without querying the value ,so i manually inputed 12
+            // 
+        // const total = Math.ceil(12 / booksPerPage)
         setTotalPages(total)
     }
         getTotal()
@@ -62,18 +63,24 @@ const PaginationComponent = () => {
 
 
     return (
-        <Pagination>
-            <Pagination.Prev
-                onClick={() => prevPageChange()}
-                disabled={currentPage === 1}
-            />
-            {items}
 
-            <Pagination.Next
-                onClick={() => nextPageChange()}
-                disabled={currentPage === totalPages}
-            />
-        </Pagination>
+
+        <div class="pagin-container">
+                <Pagination>
+                    <Pagination.Prev
+                        onClick={() => prevPageChange()}
+                        disabled={currentPage === 1}
+                    />
+                    {items}
+
+                    <Pagination.Next
+                        onClick={() => nextPageChange()}
+                        disabled={currentPage === totalPages}
+                    />
+                </Pagination>
+        </div>
+
+        
     )
 }
 

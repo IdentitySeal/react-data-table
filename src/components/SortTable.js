@@ -2,7 +2,9 @@ import { useContext } from 'react'
 import { DataContext } from '../context/index';
 
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import {faSortUp, faSortDown, faSort} from '@fortawesome/free-solid-svg-icons'
+
 
 
 
@@ -28,14 +30,18 @@ const SortTable = ({ sortTypes}) => {
         setCurrentSort(nextSort)
     }
 
-    console.log(sortTypes[currentSort].class)
+    console.log(typeof(sortTypes[currentSort].class))
+    
+    // const dat = sortTypes[currentSort].class
     return (
         <thead>
             <tr>
                 <th>Name
                     <button onClick={onSortChange}>
-                        <FontAwesomeIcon icon={`${sortTypes[currentSort].class}`} />
-                        {/* <i className={`fas fa-${}`} /> */}
+                        {/* <FontAwesomeIcon icon={console.log(sortTypes["down"].class)} /> */}
+                        {/* <FontAwesomeIcon icon={faSortUp} /> */}
+
+                        <i className={`fas fa-${sortTypes[currentSort].class}`} />
 
 
                     </button>

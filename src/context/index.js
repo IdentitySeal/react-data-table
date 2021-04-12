@@ -23,7 +23,8 @@ const DataProvider = ({ children }) => {
         const getData = async () => {
             console.log("current page " + currentPage)
             console.log("books per page " + booksPerPage)
-            return await fetch(`https://www.anapioficeandfire.com/api/books?page=${currentPage}&pageSize=${booksPerPage}`)
+            // return await fetch(`https://www.anapioficeandfire.com/api/books?page=${currentPage}&pageSize=${booksPerPage}`)
+            return await fetch(`http://localhost:8000/api/books`)
                 .then((res) => res.json())
                 .then((books) => {
                     setData(books)
