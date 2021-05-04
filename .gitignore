@@ -14,7 +14,7 @@ front/node_modules
 /build
 
 # misc
-.env
+server/.env
 server/*.env
 **/.env
 .DS_Store
