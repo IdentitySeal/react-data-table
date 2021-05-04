@@ -36,10 +36,6 @@ const PaginationComponent = () => {
         const getTotal = () => {
         
             const total = Math.ceil((data.length) / booksPerPage)
-            // The above arithmentic would have gotten exact data array length from https://anapioficeandfire.com/api/books
-            // but i wanted tobe solve this without querying the value ,so i manually inputed 12
-            // 
-        // const total = Math.ceil(12 / booksPerPage)
         setTotalPages(total)
     }
         getTotal()

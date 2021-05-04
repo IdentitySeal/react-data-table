@@ -47,21 +47,8 @@ const TableComponent = () => {
         const year = dateStr.slice(0, 4)
         const month = dateStr.slice(5, 7)
         const date = dateStr.slice(8, 10)
-
-        // return new Date(dateStr);
-        const monthArray =["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nov","Dec"]
-        
-        for (let i = 0; i < monthArray.lenght; i++){
-            console.log(i)
-        }
-        console.log(month)
-
-      
-
         // console.log(year + " " + month + "," + date)
-        
         return dateStr =` ${year}-${month}-${date}`
-
     }
     return (
         <>
